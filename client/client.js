@@ -1,4 +1,13 @@
-const socket = io("melhormmo.up.railway.app");
+// Se estiver rodando local: localhost
+// Se estiver online: o GitHub Pages carrega do mesmo domínio
+const SERVER_URL =
+  location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "http://localhost:3000";
+
+const socket = io(SERVER_URL);
+
+// const socket = io("melhormmo.up.railway.app"); RAILWAY
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
