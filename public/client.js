@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("melhormmo.up.railway.app");
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
