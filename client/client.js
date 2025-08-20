@@ -1,5 +1,5 @@
 // Substitua pela URL do seu Render online
-const SERVER_URL = "https://SEU-MMOSERVER.onrender.com";
+const SERVER_URL = "https://mmo-yfsy.onrender.com/";
 const socket = io(SERVER_URL);
 
 // Movimento
