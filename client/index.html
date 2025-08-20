@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <title>MMO 2D Stickman</title>
+    <meta charset="UTF-8">
+    <title>MMO Stickman</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
-
     <div id="chat">
         <div id="messages"></div>
-        <input id="msgInput" placeholder="Digite uma mensagem...">
+        <input id="chatInput" type="text" placeholder="Digite sua mensagem">
+        <button id="sendBtn">Enviar</button>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
     <script src="client.js"></script>
 </body>
 

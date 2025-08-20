@@ -1,18 +1,19 @@
 const express = require("express");
 const http = require("http");
+const path = require("path");
 const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin: "*", // Permite que o frontend de qualquer URL se conecte
-    methods: ["GET", "POST"],
-  },
+  cors: { origin: "*", methods: ["GET", "POST"] },
 });
 
-// Serve arquivos estáticos se você quiser rodar frontend pelo backend
-app.use(express.static("client"));
+// Serve frontend
+app.use(express.static(path.join(__dirname, "client")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "index.html"));
+});
 
 // Socket.IO
 let players = {};
@@ -20,7 +21,7 @@ let players = {};
 io.on("connection", (socket) => {
   console.log("Novo player conectado:", socket.id);
 
-  // Enviar estado atual
+  // Envia estado atual
   socket.emit("updatePlayers", players);
 
   // Novo player
